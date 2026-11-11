@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions()
@@ -6,10 +7,12 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions()
 });
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddHttpClient();
 var app = builder.Build();
 app.UseStaticFiles();
-app.MapControllers();
+
 app.UseRouting();
+app.MapControllers();
 
 
 app.Run();
